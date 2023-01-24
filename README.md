@@ -47,42 +47,112 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+```
+Step 1:
+Open Quartus II and select new project . Open new file at the verilog.
 
+Step 2:
+Module Declaration. Module should have the file name.
 
+Step 3:
+Input-Output Delecaration.
+
+Step 4:
+Use wire to define the functionality of logic circuits.
+
+Step 5:
+End the module.
+
+Step 6:
+Run the program and choose RTL viewer to get RTL realization.
+
+```
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: SATHISH R
+RegisterNumber: 22009045
+```
+### MULTIPLEXER:
+```
+module mux(i0,i1,i2,i3,s0,s1,y);
+input i0,i1,i2,i3,s0,s1;
+output y;
+wire p,q,r,s,s0c,s1c;
+not(s0c,s0);
+not(s1c,s1);
+and(p,s0c,s1c,i0);
+and(q,s0c,s1,i1);
+and(r,s0,s1c,i2);
+and(s,s0,s1,i3);
+or(y,p,q,r,s);
+endmodule  
+```
 
-
-
-
-
+### DE-MULTIPLEXER:
+```
+module mux(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0c,s1c;
+nor(s0c,s0);
+nor(s1c,s1);
+and(y0,i,s0c,s1c);
+and(y1,i,s0c,s1);
+and(y2,i,s0,s1c);
+and(y3,i,s0,s1);
+endmodule
+```
 
 ### RTL LOGIC  
 
+### MULTIPLEXER:
+
+![MUX 1](https://user-images.githubusercontent.com/120574768/214292876-b77a9ea9-ae9c-4e3a-899a-870c42757778.png)
 
 
+### DE-MULTIPLEXER:
 
-
-
+![DEMUX-2](https://user-images.githubusercontent.com/120574768/214292885-9e452534-90fd-44a6-a65d-ff35a04d8d85.png)
 
 
 ### TIMING DIGRAMS  
 
+### MULTIPLEXER:
+
+WHEN I0=1
+![TM1](https://user-images.githubusercontent.com/120574768/214292917-5de2875d-3b5a-4429-a6bd-ced431cefbb0.png)
 
 
+WHEN I1=1
+![TM2](https://user-images.githubusercontent.com/120574768/214292923-38863e57-a578-4529-944a-4cc16cd38dc9.png)
 
+
+WHEN I2=1
+![TM3](https://user-images.githubusercontent.com/120574768/214292936-fc590ad2-39dc-41f3-8d91-2b408e420daa.png)
+
+
+WHEN I3=1
+
+![TM4](https://user-images.githubusercontent.com/120574768/214292948-edf50565-938b-4184-8dbf-e5acc11f89cd.png)
+
+
+### DE-MULTIPLEXER:
+
+
+![TTM](https://user-images.githubusercontent.com/120574768/214292969-109aeb1a-0093-4959-8eb2-4bb5a706124f.png)
 
 ### TRUTH TABLE 
 
+### MULTIPLEXER:
+
+![TRUTHTABLE M](https://user-images.githubusercontent.com/120574768/214292986-2e623f4a-dc05-4872-bfd6-cebe7e583da5.png)
+
+### DE-MULTIPLEXER:
+
+![TTDM](https://user-images.githubusercontent.com/120574768/214292997-f1a14ff4-7cc7-4d14-886f-b42ec65cf61d.png)
 
 
-
-
-
-### RESULTS 
+### RESULTS :
+4 X1 multiplexer and 1X4 de multiplexer has been implemented using verilog and outputs are validated.
